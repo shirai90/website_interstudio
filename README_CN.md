@@ -19,38 +19,78 @@
   - TypeScript and JavaScript Language Features
   - SCSS IntelliSense
 
-## 安装步骤
+## 详细安装步骤
 
-1. **克隆项目**
-   打开终端，运行以下命令：
+1. **安装 Node.js**
+   - 访问 [Node.js 官网](https://nodejs.org/en/download)
+   - 下载并安装与你的电脑适配的版本
+   - 安装完成后，打开终端运行以下命令验证安装：
+     ```bash
+     node --version
+     npm --version
+     ```
+
+2. **安装 Typescript**
    ```bash
-   git clone https://github.com/你的用户名/你的项目名.git
-   cd 你的项目名
+   npm install -g typescript
+   ```
+   验证安装：
+   ```bash
+   tsc --version
    ```
 
-2. **安装依赖**
-   在项目根目录下运行：
+3. **安装 Gatsby CLI**
+   ```bash
+   npm install -g gatsby-cli
+   ```
+   验证安装：
+   ```bash
+   gatsby --version
+   ```
+
+4. **克隆项目**
+   ```bash
+   git clone https://gitlab.com/interstudio1/interstudio_website
+   cd gatsby-sharp
+   ```
+
+5. **安装项目依赖**
    ```bash
    npm install
    ```
 
-3. **启动开发服务器**
-   运行以下命令启动本地开发服务器：
+6. **启动开发服务器**
    ```bash
    npm run develop
    ```
-   开发服务器启动后，打开浏览器访问 `http://localhost:8000` 即可查看网站。
-
-4. **构建生产版本**
-   如果需要构建生产版本，运行：
+   或
    ```bash
-   npm run build
-   ```
-   构建完成后，可以使用以下命令启动本地服务器测试生产版本：
-   ```bash
-   npm run serve
+   gatsby develop
    ```
 
-## 项目结构
+**注意**
+本项目使用了个性化的插件：gatsby-plugin-mdx-heading-anchor，用于在mdx文件中添加锚点，实现自动添加导航和跳转。项目中自带该插件的文件内容，且确定了依赖路径，理论上可以正常使用。如果该插件出现问题，可以前往[GitLab仓库]（https://gitlab.com/interstudio1/gatsby-plugin-mdx-heading-anchor/）下载安装并更新依赖路径。
 
-简要说明项目的主要文件和目录结构：
+## 常见问题解决
+
+1. **依赖安装失败**
+   ```bash
+   npm cache clean --force
+   rm -rf node_modules
+   npm install
+   ```
+
+2. **Gatsby 开发服务器启动失败**
+   ```bash
+   gatsby clean
+   gatsby develop
+   ```
+
+3. **TypeScript 类型错误**
+   - 确保已安装所有必要的 @types 包
+   - 运行 `npm run type-check` 检查类型错误
+
+## 具体内容开发指南
+
+见项目内部'/guide'网页，可通过首页链接跳转或访问guide.mdx文件查看。
+更详细的环境配置及项目结构说明请参考[iweb](https://shanghaitech-igem.github.io/iweb/2025/)。
