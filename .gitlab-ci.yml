@@ -1,0 +1,17 @@
+image: node:lts-slim
+
+stages:
+  - deploy
+
+pages:
+  stage: deploy
+  script:
+    - corepack enable
+    - corepack prepare npm --activate
+    - npm install --frozen-lockfile --prod
+    - npm run build --prefix-paths
+  artifacts:
+    paths:
+      - public
+  only:
+    - main
