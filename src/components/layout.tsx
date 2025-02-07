@@ -19,12 +19,12 @@ const Layout: React.FC<LayoutProps> = ({ title, children }) => {
         {/* 左侧社团 logo */}
         <StaticImage
           className={styles.logo}
-          src="../images/inter_logo.png" // 路径相对于当前文件
+          src="../images/inter_logo.png" 
           alt="interstudio"
           placeholder="blurred" // 加载时模糊效果
           layout="constrained" // 保持宽高比
           objectFit="contain"
-          height={40} // 明确设置宽度
+          height={40} 
         />
 
         {/* 右侧三张跳转图片 */}
@@ -40,7 +40,7 @@ const Layout: React.FC<LayoutProps> = ({ title, children }) => {
               alt="小红书"
               placeholder="none"
               layout="fixed"
-              width={30}  // 明确尺寸有利于性能优化
+              width={30}
               height={30}
             />
           </div>
@@ -99,7 +99,7 @@ const Layout: React.FC<LayoutProps> = ({ title, children }) => {
         </div>
       </div>
 
-      {/* 新增导航栏 */}
+      {/* 导航栏 */}
       <nav className={styles.navBar}>
         <div className={styles.navContainer}>
           <Link to="/about" className={styles.navLink}>关于我们</Link>
