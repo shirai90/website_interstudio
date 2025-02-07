@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgatsby_sharp=self.webpackChunkgatsby_sharp||[]).push([[313],{2511:function(e,t,n){n.r(t),n.d(t,{Head:function(){return s}});var a=n(6540),c=n(2472);const s=()=>a.createElement(a.Fragment,null,a.createElement("title",null,"Contact"),a.createElement("meta",{name:"description",content:"This page shows how to contact us."}));t.default=()=>a.createElement(c.A,{title:"contact page",children:void 0})}}]);
+//# sourceMappingURL=component---src-pages-contact-tsx-02deb1148dcdb67fbfc9.js.map
