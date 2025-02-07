@@ -1,49 +1,61 @@
-import * as React from "react"
-import { Link, HeadFC, PageProps } from "gatsby"
+import * as React from 'react'
+import { Link } from 'gatsby'
+import Layout from '../components/layout'
 
-const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
+const pageStyles: React.CSSProperties = {
+  minHeight: '100vh',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  padding: '1rem',
+};
 
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
+const layoutStyles: React.CSSProperties = {
+  display: 'flex',
+  gap: '3rem',
+  maxWidth: '1200px',
+  alignItems: 'center',
+  textAlign: 'center',
+};
 
-const NotFoundPage: React.FC<PageProps> = () => {
-  return (
+const contentStyles: React.CSSProperties = {
+  display: 'flex',
+  flexDirection: 'column' as const,
+  gap: '1rem',
+  position: 'relative',
+  height: '300px',
+};
+
+const linkStyles: React.CSSProperties = {
+  marginTop: '3rem',
+  color: 'rgb(123,53,205)',
+  textAlign: 'center',
+  fontWeight: 'bold',
+};
+
+const NotFoundPage: React.FC = () => (
+  <Layout title={'404 page'} >
     <main style={pageStyles}>
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry 😔, we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
-            <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Go home</Link>.
-      </p>
+      <div style={layoutStyles}>
+        <div style={contentStyles}>
+          <h1 style={{ fontSize: '3rem', margin: 0 }}>404</h1>
+          <p style={{ fontSize: '1.2rem' }}>
+            哎呀，你来到了未知领域...
+          </p>
+          <Link to="/" style={linkStyles}>
+            返回首页 →
+          </Link>
+        </div>
+      </div>
     </main>
-  )
-}
+  </Layout>
+);
 
-export default NotFoundPage
+export const Head = () => (
+  <>
+    <title>404</title>
+    <meta name="description" content="This page is not found." />
+  </>
+);
 
-export const Head: HeadFC = () => <title>Not found</title>
+export default NotFoundPage;

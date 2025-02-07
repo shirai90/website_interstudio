@@ -1,0 +1,45 @@
+.section {
+  display: grid;
+  grid-template-columns: auto minmax(auto, 600px);  // 修改这里：限制文字区域最大宽度
+  gap: 8rem;
+  align-items: start;
+  margin: 2rem auto;
+  max-width: 2000px;  
+  padding: 0 2rem;   
+  justify-content: center;
+}
+
+.imageWrapper {
+  width: 300px;
+  grid-column: 1;  // 图片在第一列
+}
+
+.content {
+  grid-column: 2;
+  max-width: 800px;  // 增加到 800px
+  width: 100%;    
+  padding-top: 2rem; 
+}
+
+.h1 {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+// 在小屏幕上改为垂直布局
+@media (max-width: 768px) {
+  .section {
+    grid-template-columns: 1fr;
+    padding: 0 1rem; 
+  }
+  
+  .imageWrapper {
+    grid-row: 1;
+    margin: 0 auto;
+  }
+  
+  .content {
+    grid-row: 2;
+    margin: 0 auto;  // 在小屏幕上居中显示
+  }
+}

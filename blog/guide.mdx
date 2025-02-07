@@ -1,0 +1,38 @@
+---
+title: user guide
+slug: guide
+---
+
+# 我做了什么？
+
+这是上海科技大学interstudio社团的网站雏形，暂时仅有一个简单的框架，尚未填充具体的社团事宜或美术设计。  
+本网站基于gatsby，tyepscript，sass和mdx构建，用户可以使用mdx轻松地编辑想要的文本。
+
+# 用户指南
+
+## 如何添加新的页面？
+
+在`src/pages`目录下创建一个新的mdx文件，保证文件名以小写字母开头，不要包含特殊字符。
+
+文件开头如下：
+
+```mdx
+---
+title: xxx
+slug: xxx（生成的网页对应的路径名称，如本页slug为guide，对应路径为guide）
+---
+```
+
+
+## 如何添加新的组件？
+
+在`src/components`目录下创建一个新的组件，然后添加到`gatsby-node.js`文件中。
+
+## 如何添加新的样式？
+
+在`src/styles`目录下创建一个新的scss文件，然后添加到`gatsby-node.js`文件中。
+
+## 如何添加新的图片？
+
+在`src/images`目录下创建一个新的图片，然后添加到`gatsby-node.js`文件中。
+
