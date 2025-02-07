@@ -69,7 +69,8 @@
    ```
 
 **注意**
-本项目使用了个性化的插件：gatsby-plugin-mdx-heading-anchor，用于在mdx文件中添加锚点，实现自动添加导航和跳转。项目中自带该插件的文件内容，且确定了依赖路径，理论上可以正常使用。如果该插件出现问题，可以前往[GitLab仓库]（https://gitlab.com/interstudio1/gatsby-plugin-mdx-heading-anchor/）下载安装并更新依赖路径。
+本项目使用了个性化的插件：gatsby-plugin-mdx-heading-anchor，用于在mdx文件中添加锚点，实现自动添加导航和跳转。项目中自带该插件的文件内容，且确定了依赖路径，理论上可以正常使用。\
+如果该插件出现问题，可以前往[GitLab仓库](https://gitlab.com/interstudio1/gatsby-plugin-mdx-heading-anchor/)下载安装并更新依赖路径。
 
 ## 常见问题解决
 
