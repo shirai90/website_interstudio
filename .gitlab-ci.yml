@@ -1,4 +1,7 @@
-image: node:lts-slim
+image: alpine:latest
+
+variables:
+  DEPLOY_BRANCH: "pages"  # The branch name is fixed as 'pages'
 
 stages:
   - deploy
@@ -6,8 +9,13 @@ stages:
 pages:
   stage: deploy
   script:
-  - npm install --production  # 安装生产依赖
-  - npm run build --prefix-paths  # 执行构建命令
+    - apk update && apk add curl bash
+    - echo "Downloading ZIP file..."
+    - curl -L -o ${CI_PROJECT_NAME}-${DEPLOY_BRANCH}.zip "https://gitlab.com/${CI_PROJECT_NAMESPACE}/${CI_PROJECT_NAME}/-/archive/${DEPLOY_BRANCH}/${CI_PROJECT_NAME}-${DEPLOY_BRANCH}.zip"
+    - unzip ${CI_PROJECT_NAME}-${DEPLOY_BRANCH}.zip
+    - rm ${CI_PROJECT_NAME}-${DEPLOY_BRANCH}.zip
+    - mkdir public/
+    - mv ${CI_PROJECT_NAME}-${DEPLOY_BRANCH}/* public/
   artifacts:
     paths:
       - public
