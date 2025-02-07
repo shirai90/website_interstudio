@@ -1,22 +1,15 @@
-image: node:14
+image: node:lts-slim
 
 stages:
-  - build
   - deploy
-
-build:
-  stage: build
-  script:
-    - npm install
-    - npm run build
-  artifacts:
-    paths:
-      - public  # Gatsby 默认的构建输出目录
 
 pages:
   stage: deploy
   script:
-    - mv public public_html  # 将构建输出目录重命名为 public_html
+  - npm install --production  # 安装生产依赖
+  - npm run build --prefix-paths  # 执行构建命令
   artifacts:
     paths:
-      - public_html
+      - public
+  only:
+    - main
