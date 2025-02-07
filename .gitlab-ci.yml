@@ -1,17 +1,22 @@
-image: node:lts-slim
+image: node:14
 
 stages:
+  - build
   - deploy
+
+build:
+  stage: build
+  script:
+    - npm install
+    - npm run build
+  artifacts:
+    paths:
+      - public  # Gatsby 默认的构建输出目录
 
 pages:
   stage: deploy
   script:
-    - corepack enable
-    - corepack prepare npm --activate
-    - npm install --frozen-lockfile --prod
-    - npm run build --prefix-paths
+    - mv public public_html  # 将构建输出目录重命名为 public_html
   artifacts:
     paths:
-      - public
-  only:
-    - main
+      - public_html
